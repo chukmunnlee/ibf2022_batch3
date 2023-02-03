@@ -17,10 +17,10 @@ public class GameMain {
         enemies.add(new Tree());
         enemies.add(new Gnome());
 
-        Hittable h = new Tree();
+        Hittable ht = new Tree();
 
-        if (h instanceof Tree) {
-            Tree t = (Tree)h;
+        if (ht instanceof Tree) {
+            Tree t = (Tree)ht;
         }
 
         for (Hittable h: enemies) {
