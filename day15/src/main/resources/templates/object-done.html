@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h2>Processed</h2>
+
+    <table data-th-object="${order}">
+        <tr>
+            <td><code>item</code></td>
+            <td>
+                <span data-th-text="*{item}"></span>
+            </td>
+        </tr>
+        <tr>
+            <td><code>quantity</code></td>
+            <td>
+                <span data-th-text="*{quantity}"></span>
+            </td>
+        </tr>
+        <tr>
+            <td><code>delivery</code></td>
+            <td>
+                <span data-th-text="*{delivery}"></span>
+            </td>
+        </tr>
+    </table>
+
+    <h2><a href="/order/order.html">Back</a></h2>
+    
+</body>
+</html>
