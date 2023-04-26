@@ -9,5 +9,4 @@ public class Day25RevisionApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(Day25RevisionApplication.class, args);
 	}
-
 }

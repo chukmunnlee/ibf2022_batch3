@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Document</title>
+	</head>
+	<body>
+
+		<form method="GET" action="/search">
+			<table>
+				<tr>
+					<td>Page:</td>
+					<td>
+						<select name="page">
+							<option value="0">1</option>
+							<option value="1">2</option>
+							<option value="2">3</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>Results:</td>
+					<td>
+						<select name="result">
+							<option value="10">10</option>
+							<option value="20">20</option>
+							<option value="30">30</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td>
+						<button type="submit">Search</button>
+					</td>
+				</tr>
+			</table>
+		</form>
+		
+	</body>
+</html>
