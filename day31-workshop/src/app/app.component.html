@@ -1,0 +1,8 @@
+<h1>Shopping Cart</h1>
+
+<div class="container">
+
+  <app-inventory (onItemSelection)="process($event)"></app-inventory>
+  <app-cart [contents]="cart"></app-cart>
+
+</div>

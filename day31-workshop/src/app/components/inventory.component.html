@@ -1,0 +1,8 @@
+<h2>Inventory</h2>
+
+<div *ngFor="let f of fruits; let i = index">
+  <img src="/assets/fruits/{{ f }}.png" width="80">
+  <button type="button" (click)="dec(i)">-</button>
+  <button type="button" (click)="inc(i)">+</button>
+  {{ f | uppercase }}
+</div>
