@@ -1,0 +1,8 @@
+.num {
+  width: 20vw;
+  height: auto;
+  border: 1px solid lightgrey;
+  border-radius: 8px;
+  margin: 5px;
+  padding: 3px;
+}

@@ -1,0 +1,8 @@
+.thumbnail {
+  width: 35vw;
+  height: auto;
+  border: 2px solid grey;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px lightgray;
+  margin: 5px;
+}

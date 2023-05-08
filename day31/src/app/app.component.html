@@ -1,0 +1,22 @@
+<h1>hello, world</h1>
+
+<div>
+  <button type="button" (click)="generateNums()">Regenerate</button>
+</div>
+
+<app-nums *ngFor="let n of values" [value]="n"></app-nums>
+
+<!--
+<app-pic-frame [image]="pics[0]" altText="my pic">
+</app-pic-frame>
+
+<app-pic-carousel title="List of my pictures" [pictures]="pics"></app-pic-carousel>
+
+
+<app-pic-frame [image]="pics[0]" altText="my pic">
+</app-pic-frame>
+<app-pic-frame
+  [image]="pics[1]"
+  altText="my text">
+</app-pic-frame>
+-->
