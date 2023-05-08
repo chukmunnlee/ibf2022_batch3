@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output } from '@angular/core';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-nums',
@@ -8,11 +9,18 @@ import { Component, Input } from '@angular/core';
 export class NumsComponent {
 
   // Angular v16
+  // Attribute
   @Input({ required: true })
   value: number = 0
 
-  pressed() {
+  // Event
+  @Output()
+  onSelected = new Subject<number>()
+
+  pressed(e: any) {
     console.info(`value is ${this.value}`)
+    //console.info('e = ', e)
+    this.onSelected.next(this.value)
   }
 
   incValue(v = 1) {

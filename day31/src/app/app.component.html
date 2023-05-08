@@ -1,10 +1,20 @@
 <h1>hello, world</h1>
 
+<div *ngIf="selectedNums.length > 0 else noSelection">
+  <span *ngFor="let n of selectedNums">{{ n }}, </span>
+</div>
+
 <div>
   <button type="button" (click)="generateNums()">Regenerate</button>
 </div>
 
-<app-nums *ngFor="let n of values" [value]="n"></app-nums>
+<app-nums *ngFor="let n of values"
+    [value]="n" (onSelected)="valueSelected($event)">
+</app-nums>
+
+<ng-template #noSelection>
+  <h3>Please select your numbers</h3>
+</ng-template>
 
 <!--
 <app-pic-frame [image]="pics[0]" altText="my pic">

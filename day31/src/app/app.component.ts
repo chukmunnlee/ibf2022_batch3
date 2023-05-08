@@ -14,10 +14,17 @@ export class AppComponent {
 
   values: number[] = []
 
+  selectedNums: number[] = []
+
   constructor() {
 
     this.generateNums()
 
+  }
+
+  valueSelected(n: number) {
+    console.info('>>>> app.component: value selected: ', n)
+    this.selectedNums.push(n)
   }
 
   generateNums() {
@@ -30,6 +37,5 @@ export class AppComponent {
     }
 
     console.info('>>> generated values: ', this.values)
-
   }
 }
