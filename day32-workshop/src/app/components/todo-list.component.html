@@ -1,0 +1,6 @@
+
+<h2>My List of Todos</h2>
+
+<div *ngFor="let t of todos; let i = index" (click)="selected(i)">
+  <code>{{ t.title }}</code> ({{ t.tasks.length }})
+</div>

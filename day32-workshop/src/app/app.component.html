@@ -1,0 +1,10 @@
+<div class="center-it">
+  <div class="grid-container">
+
+    <app-task (onNewTask)="newTask($event)" [todo]="todo"></app-task>
+
+    <app-todo-list [todos]="todos" (onSelectedTodo)="selectedTodo($event)">
+    </app-todo-list>
+
+  </div>
+</div>
