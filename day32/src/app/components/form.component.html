@@ -1,0 +1,90 @@
+<h2>Friends</h2>
+
+<form [formGroup]="friendsForm" (submit)="processForm()">
+  <table>
+    <tr>
+      <td>Name:</td>
+      <td>
+        <input type="text" size="30" placeholder="Name" [formControlName]="nameField">
+        <span *ngIf="invalidField(nameField)">
+          Please enter a valid name
+        </span>
+      </td>
+    </tr>
+    <tr>
+      <td>Email:</td>
+      <td>
+        <input type="email" size="30" placeholder="Email" formControlName="email">
+        <span *ngIf="invalidField('email')">
+          Please enter a valid email
+        </span>
+      </td>
+    </tr>
+    <tr>
+      <td>Age:</td>
+      <td>
+        <input type="number" size="5" placeholder="Age" min="10" formControlName="age">
+        <span *ngIf="invalidField('age')">
+          You must be atleast 10 years old to be my friend
+        </span>
+      </td>
+    </tr>
+    <tr>
+      <td>Gender:</td>
+      <td>
+        <select formControlName="gender">
+          <option value="f">Female</option>
+          <option value="m">Male</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      </td>
+      <td>
+        <ul>
+          <li>valid: {{ friendsForm.valid }}</li>
+          <li>invalid: {{ friendsForm.invalid }}</li>
+          <li>dirty: {{ friendsForm.dirty }}</li>
+          <li>pristine: {{ friendsForm.pristine }}</li>
+        </ul>
+
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <button type="submit" [disabled]="invalidForm()">Add</button>
+        <button type="button" (click)="addAFact()">Add a Fact</button>
+      </td>
+    </tr>
+  </table>
+
+  <table *ngIf="factsArray.length >0 else noFacts">
+    <thead>
+      <tr>
+        <th>Fact</th>
+        <th>Value</th>
+      </tr>
+    </thead>
+    <tbody formArrayName="facts">
+      <tr *ngFor="let f of factsArray.controls; let i = index" [formGroupName]="i">
+        <td>
+          <input type="text" size="30" formControlName="fact">
+        </td>
+        <td>
+          <input type="text" size="30" formControlName="value">
+        </td>
+        <td>
+          <button type="button" (click)="removeAFact(i)">X</button>
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+
+</form>
+
+<ng-template #noFacts>
+  <h2>Seems like you know next to nothing about your friend</h2>
+</ng-template>
