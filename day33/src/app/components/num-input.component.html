@@ -1,0 +1,10 @@
+<h1>Add a Number</h1>
+
+<form [formGroup]="form" (ngSubmit)="processForm()">
+  <div><label for="num">Enter a number</label></div>
+  <div>
+    <input type="number" id="num" size="20" formControlName="value">
+    <button type="submit" [disabled]="invalid()">Add</button>
+  </div>
+
+</form>
