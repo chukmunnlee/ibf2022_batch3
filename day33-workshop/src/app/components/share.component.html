@@ -1,0 +1,26 @@
+<form [formGroup]="form" (submit)="share()">
+
+  <div class="grid-container">
+    <mat-form-field>
+      <mat-label>Share a thought</mat-label>
+      <textarea cols="30" rows="4" matInput formControlName="thought"></textarea>
+      <mat-hint *ngIf="!canShare" class="error" align="end">
+        Web share is not supported
+      </mat-hint>
+    </mat-form-field>
+
+    <div>
+      <div class="space-it">
+        <button type="button" mat-raised-button (click)="clear()">
+          <mat-icon>delete</mat-icon>
+          Clear
+        </button>
+        <button type="submit" mat-raised-button color="primary" [disabled]="invalid()">
+          <mat-icon>share</mat-icon>
+          Share
+        </button>
+      </div>
+    </div>
+  </div>
+
+</form>

@@ -1,0 +1,15 @@
+.grid-container {
+  display: grid;
+  gap: 5px;
+  grid-template-columns: 1fr;
+  row-gap: 2vh;
+}
+
+.space-it {
+  display: flex;
+  justify-content: space-around;
+}
+
+.error {
+  color: red;
+}
