@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, Output, inject } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, Output, SimpleChanges, inject } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
 import { Task, Todo } from '../models';
 import { Subject } from 'rxjs';
@@ -8,7 +8,7 @@ import { Subject } from 'rxjs';
   templateUrl: './task.component.html',
   styleUrls: ['./task.component.css']
 })
-export class TaskComponent implements OnInit {
+export class TaskComponent implements OnInit, OnChanges {
 
   @Input()
   todo: Todo | null = null
@@ -16,14 +16,28 @@ export class TaskComponent implements OnInit {
   @Output()
   onNewTask = new Subject<Todo>()
 
+  get value(): Todo | null {
+    return this.todoForm.value as Todo
+  }
+  set value(t: Todo | null) {
+    this.todo = t
+    this.todoForm = this.createTodo(t);
+  }
+
   fb = inject(FormBuilder)
 
   todoForm!: FormGroup
   taskArr!: FormArray
 
   ngOnInit(): void {
-    console.info('>>> todo: ', this.todo)
     this.todoForm = this.createTodo(this.todo)
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    const c = changes['todo']
+    if (c.firstChange)
+      return
+    this.todoForm = this.createTodo(c.currentValue as Todo);
   }
 
   addTask() {

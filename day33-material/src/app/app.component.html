@@ -1,0 +1,19 @@
+<mat-toolbar color="primary">
+  <button type="button" mat-icon-button>
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>My Toolbar</span>
+</mat-toolbar>
+
+<form [formGroup]="form">
+  <div class="grid-container">
+    <mat-form-field appearance="outline">
+      <mat-label>Name</mat-label>
+      <input type="text" matInput placeholder="Your name" formControlName="name">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Email</mat-label>
+      <input type="email" matInput placeholder="Your email" formControlName="email">
+    </mat-form-field>
+  </div>
+</form>

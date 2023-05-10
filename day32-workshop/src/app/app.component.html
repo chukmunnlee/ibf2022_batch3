@@ -1,10 +1,19 @@
 <div class="center-it">
   <div class="grid-container">
 
-    <app-task (onNewTask)="newTask($event)" [todo]="todo"></app-task>
+    <div style="border: 1px solid grey;">
+      <!-- <app-task (onNewTask)="newTask($event)" [todo]="todo"> -->
+      <!-- #task - template reference -->
+      <app-task #task>
+        <button type="submit">Save</button>
+        <button type="button" (click)="deleteTask()">Delete</button>
+      </app-task>
+    </div>
 
     <app-todo-list [todos]="todos" (onSelectedTodo)="selectedTodo($event)">
     </app-todo-list>
+
+    <button type="button" #myButton>My Button</button>
 
   </div>
 </div>
