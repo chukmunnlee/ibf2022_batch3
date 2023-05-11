@@ -1,0 +1,8 @@
+<div class="grid-container">
+  <h1>From member: {{ count }}</h1>
+  <h1>From observable: {{ countObs$ | async }}</h1>
+  <h1>From observable 2: {{ countObs2$ | async }}</h1>
+  <h2>Log: <code>{{ log }}</code></h2>
+</div>
+
+<button type="button" (click)="pressed()">Press</button>
