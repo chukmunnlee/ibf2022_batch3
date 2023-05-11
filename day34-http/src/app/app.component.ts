@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { DogService } from './dog.service';
+import { Observable } from 'rxjs';
+import { ApiResponse } from './models';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +9,19 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'day34-http';
+
+  dogSvc = inject(DogService)
+
+  //constructor(private dogSvc: DogService) { }
+
+  resp$!: Observable<ApiResponse>
+  prom$!: Promise<string>
+
+  getDogsAsPromise() {
+    this.prom$ = this.dogSvc.getDogAsPromiseImage()
+  }
+
+  getDogsAsObservable() {
+    this.resp$ = this.dogSvc.getDogAsObservable()
+  }
 }
