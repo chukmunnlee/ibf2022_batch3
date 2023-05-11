@@ -1,0 +1,19 @@
+
+<div class="center-it" (click)="pressed()">
+  <div *ngIf="joke$ | async as j else noJoke">
+
+    <div class="setup font-3em">
+      {{ j.setup }}
+    </div>
+
+    <div class="font-3em punchline">
+      {{ j.punchline }}
+
+    </div>
+
+  </div>
+</div>
+
+<ng-template #noJoke>
+  <h2 class="font-3em">Press here to get a joke</h2>
+</ng-template>

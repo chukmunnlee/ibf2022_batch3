@@ -1,0 +1,20 @@
+.center-it {
+  width: 99vw;
+  height: 99vh;
+  display: flex;
+  justify-content: center;
+}
+
+.font-3em {
+  font-size: 3em;
+  overflow: auto;
+}
+
+.setup {
+  color: blue;
+}
+
+.punchline {
+  margin-top: 5vh;
+  font-family: monospace;
+}
