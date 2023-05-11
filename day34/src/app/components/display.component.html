@@ -1,1 +1,22 @@
-<p>display works!</p>
+
+<h2>My Form</h2>
+
+<form [formGroup]="form">
+  <table>
+    <tr>
+      <td>Name:</td>
+      <td>
+        <input type="text" name="" id="" formControlName="name">
+        <code>{{ name }}</code>
+      </td>
+    </tr>
+    <tr>
+      <td>Email:</td>
+      <td>
+        <input type="email" name="" id="" formControlName="email">
+        <code>{{ form$ | async | json }}</code>
+      </td>
+    </tr>
+  </table>
+
+</form>

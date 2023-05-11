@@ -1,8 +1,13 @@
-<div class="grid-container">
-  <h1>From member: {{ count }}</h1>
-  <h1>From observable: {{ countObs$ | async }}</h1>
-  <h1>From observable 2: {{ countObs2$ | async }}</h1>
-  <h2>Log: <code>{{ log }}</code></h2>
+
+<div>
+  <app-jokes></app-jokes>
 </div>
 
-<button type="button" (click)="pressed()">Press</button>
+<!-- <div class="grid-container">
+  <div>
+    <app-input></app-input>
+    <code>{{ keyPressed$ | async }}</code>
+  </div>
+  <app-display></app-display>
+</div> -->
+

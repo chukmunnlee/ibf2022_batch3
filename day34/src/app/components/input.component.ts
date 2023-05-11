@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Output } from '@angular/core';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-input',
@@ -7,4 +8,11 @@ import { Component } from '@angular/core';
 })
 export class InputComponent {
 
+  @Output()
+  keyPressed = new Subject<string>()
+
+  keypressed(event: any) {
+    //console.info(">> event: ", event.target.value)
+    this.keyPressed.next(event.target.value)
+  }
 }
