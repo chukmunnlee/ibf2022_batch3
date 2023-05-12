@@ -1,0 +1,12 @@
+
+.center-it {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.font-15em {
+  margin-top: 3vh;
+  font-size: 1.5em;
+}
