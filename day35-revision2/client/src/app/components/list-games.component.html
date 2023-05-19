@@ -1,0 +1,28 @@
+<h2>
+  Games per page
+  <select (change)="fetchChanges(perPage.value)" #perPage>
+    <option value="5">5</option>
+    <option value="10">10</option>
+    <option value="15">15</option>
+    <option value="20">20</option>
+  </select>
+</h2>
+
+<div style="margin-bottom: 10px;">
+  <label for="filter">Filter: </label>
+  <input type="text" id="filter" size="20" placeholder="Name filter"
+      (keyup)="filtering(inputFilter.value)" #inputFilter>
+</div>
+
+<div *ngIf="games$ | async as games; else blank">
+  <div *ngFor="let g of games">
+    <a href="/api/game/{{g.gameId}}">{{ g.name }} ({{ g.gameId }})</a>
+  </div>
+</div>
+
+<div style="margin-top: 10px;">
+  <button type="button" (click)="page(-1)">Prev</button>
+  <button type="button" (click)="page(1)">Next</button>
+</div>
+
+<ng-template #blank></ng-template>
