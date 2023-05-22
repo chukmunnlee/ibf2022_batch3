@@ -1,0 +1,12 @@
+.center-it {
+  width: 99vw;
+  font-size: 1.3em;
+}
+
+.label-col {
+  width: 8vw;
+}
+
+input[type="radio"] {
+  margin-right: 20px;
+}
