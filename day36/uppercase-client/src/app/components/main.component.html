@@ -1,0 +1,11 @@
+<h2>Enter a pharse</h2>
+
+<form [formGroup]="form" (submit)="process()">
+
+  <input type="text" size="30" formControlName="text">
+
+  <button type="submit" [disabled]="form.invalid">
+    To Uppercase
+  </button>
+
+</form>

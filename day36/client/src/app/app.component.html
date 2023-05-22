@@ -1,0 +1,23 @@
+<h1 [routerLink]="['/']">My First SPA</h1>
+
+<h2>
+  <a [routerLink]="['/bear']">Bear</a>
+  &nbsp;&nbsp;
+  <button type="button" (click)="gotoBear()">Bear</button>
+
+  &nbsp;&nbsp;
+  <button type="button" (click)="displayNumber(1)">1</button>
+  &nbsp;&nbsp;
+  <button type="button" (click)="displayNumber(10)">10</button>
+  &nbsp;&nbsp;
+  <button type="button" (click)="displayNumber(20)">20</button>
+  &nbsp;&nbsp;
+  <button type="button" [routerLink]="['/number/25']" [queryParams]="{ size: 'lg' }">
+    25 (size=lg)
+  </button>
+
+</h2>
+
+<div style="padding: 10px; border: 1px solid black;">
+  <router-outlet></router-outlet>
+</div>
