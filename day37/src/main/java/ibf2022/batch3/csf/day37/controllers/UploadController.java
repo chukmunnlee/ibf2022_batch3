@@ -35,7 +35,7 @@ public class UploadController {
       model.addAttribute("filename", mypic.getOriginalFilename());
       model.addAttribute("size", mypic.getSize());
       model.addAttribute("contentType", mypic.getContentType());
-      model.addAttribute("uploaded", id);
+      model.addAttribute("uploaded", result);
 
       return "uploaded";
    }
