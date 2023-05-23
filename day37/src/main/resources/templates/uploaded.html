@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+<body>
+
+   <table>
+      <tr>
+         <td>Filename:</td>
+         <td>
+            <span data-th-text="${filename}"></span>
+         </td>
+      </tr>
+      <tr>
+         <td>File size:</td>
+         <td>
+            <span data-th-text="${size}"></span>
+         </td>
+      </tr>
+      <tr>
+         <td>Content Type:</td>
+         <td>
+            <span data-th-text="${contentType}"></span>
+         </td>
+      </tr>
+      <tr>
+         <td>Uploaded:</td>
+         <td>
+            <span data-th-text="${uploaded}"></span>
+         </td>
+      </tr>
+   </table>
+   
+</body>
+</html>
