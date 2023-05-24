@@ -1,5 +1,6 @@
 package ibf2022.batch3.csf.day37workshop.controllers;
 
+import java.util.Base64;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,31 @@ public class PostsController {
 	@Autowired
 	private PostsService postsSvc;
 
+	@GetMapping("/post/{postId}")
+	public ModelAndView getPost(@PathVariable String postId) {
+		Optional<Photo> opt = postsSvc.getImageById(postId);
+		Photo photo = opt.get();
+
+		StringBuilder strBdr = new StringBuilder();
+		strBdr.append("data:").append(photo.imageType()).append(";base64,");
+
+		byte[] buff = photo.content();
+		String b64 = Base64.getEncoder().encodeToString(buff);
+		strBdr.append(b64);
+
+		String imageData = strBdr.toString();
+
+		System.out.printf(">>> imageData: %s\n", imageData);
+
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("photo");
+		mv.setStatus(HttpStatusCode.valueOf(200));
+		mv.addObject("imageData", imageData);
+		mv.addObject("photoId", postId);
+
+		return mv;
+	}
+
 	@GetMapping(path="/post/image/{image}")
 	@ResponseBody
 	public ResponseEntity<byte[]> getImage(@PathVariable String image) {
@@ -37,7 +63,7 @@ public class PostsController {
 
 		return ResponseEntity
 					.status(200)
-					.header("Content-Type", photo.imageId())
+					.header("Content-Type", photo.imageType())
 					.body(photo.content());
 	}
 
