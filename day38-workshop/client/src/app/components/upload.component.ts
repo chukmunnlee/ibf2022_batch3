@@ -1,6 +1,8 @@
 import { Component, inject, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import {PhotoService} from '../photo.service';
+import { dataURLtoFile } from '../utils';
+import { firstValueFrom } from 'rxjs';
 @Component({
   selector: 'app-upload',
   templateUrl: './upload.component.html',
@@ -20,6 +22,13 @@ export class UploadComponent implements OnInit {
     }
 
     this.photo = this.photoSvc.photo
+  }
+
+  upload() {
+    const f = dataURLtoFile(this.photo)
+    firstValueFrom(this.photoSvc.upload(f))
+      .then(() => alert('uploaded'))
+      .catch(error => alert(JSON.stringify(error)))
   }
 
 }

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import {ReactiveFormsModule} from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 import {RouterModule, Routes} from '@angular/router';
 
 import { WebcamModule } from 'ngx-webcam'
@@ -23,7 +24,7 @@ const appRoute: Routes = [
   ],
   imports: [
     BrowserModule, ReactiveFormsModule,
-    RouterModule.forRoot(appRoute),
+    RouterModule.forRoot(appRoute), HttpClientModule,
     WebcamModule
   ],
   providers: [ PhotoService ],
