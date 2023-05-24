@@ -1,0 +1,20 @@
+
+<div>
+
+  <div class="row">
+    <div class="col d-flex justify-content-center w-100">
+      <webcam [width]="viewWidth" [height]="viewHeight"
+          [trigger]="trigger$" (imageCapture)="image($event)">
+      </webcam>
+    </div>
+  </div>
+
+  <div class="row mt-3">
+    <div class="col d-flex justify-content-center w-100">
+      <button type="button" class="btn btn-primary btn-lg" (click)="snap()">
+        SNAP!
+      </button>
+    </div>
+  </div>
+
+</div>
