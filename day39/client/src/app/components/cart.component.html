@@ -1,0 +1,62 @@
+<h1>Shopping Cart</h1>
+
+<form [formGroup]="form" (submit)="saveCart()">
+
+  <table>
+    <tr>
+      <td>Title:</td>
+      <td>
+        <input type="text" size="30" formControlName="title">
+      </td>
+    </tr>
+    <tr>
+      <td>Comments:</td>
+      <td>
+        <textarea cols="30" rows="5" formControlName="comments"></textarea>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <button type="submit" [disabled]="invalid()">Save</button>
+        <button type="button" (click)="addItem()">Add Item</button>
+      </td>
+    </tr>
+  </table>
+
+  <div *ngIf="itemArr.length > 0; else emptyCart">
+    <table>
+      <thead>
+        <tr>
+          <th>Item</th>
+          <th>Quantity</th>
+        </tr>
+      </thead>
+      <tbody formArrayName="items">
+        <tr *ngFor="let it of itemArr.controls; let i = index" [formGroupName]="i">
+          <td>
+            <input type="text" size="30" formControlName="item">
+          </td>
+          <td>
+            <select formControlName="quantity">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+          </td>
+          <td>
+            <button type="button" (click)="removeItem(i)">X</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</form>
+
+<button type="button" [routerLink]="['/list']">Cancel</button>
+
+<ng-template #emptyCart>
+  <h2>Your cart is empty</h2>
+</ng-template>

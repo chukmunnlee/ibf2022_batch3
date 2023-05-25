@@ -1,0 +1,14 @@
+<div *ngIf="cart$ | async as c">
+
+  <h2>{{ c.cartId }}</h2>
+  <h2>{{ c.title }}</h2>
+
+  <ul>
+    <li *ngFor="let i of c.items">
+      {{ i.item }} @ {{ i.quantity }}
+    </li>
+  </ul>
+
+</div>
+
+<button type="button" [routerLink]="['/list']">Back</button>
