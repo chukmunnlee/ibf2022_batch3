@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit, inject } from '@angular/core';
 import { NumberService } from '../data.service';
 import { ActivatedRoute } from '@angular/router';
 import { Title } from '@angular/platform-browser';
-import { Subscription } from 'rxjs';
+import { Subscription, zip } from 'rxjs';
 
 @Component({
   selector: 'app-number',
@@ -21,6 +21,19 @@ export class NumberComponent implements OnInit, OnDestroy{
 
   ngOnInit(): void {
     // this.toDisplay = this.numberSvc.toDisplay
+
+    zip(
+      this.activatedRoute.queryParams,
+      this.activatedRoute.params
+    ).subscribe(v => {
+      console.info('>>> zip: ', v)
+    })
+
+    this.activatedRoute.queryParams.subscribe(
+      value => {
+        console.info('>>> query: ', value)
+      }
+    )
 
     this.params$ = this.activatedRoute.params.subscribe(
       values => {
