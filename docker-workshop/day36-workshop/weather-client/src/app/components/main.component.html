@@ -1,0 +1,37 @@
+
+<form [formGroup]="form" (submit)="process()">
+  <div class="center-it">
+    <table>
+      <tr>
+        <td class="label-col">
+          <label for="city">City: </label>
+        </td>
+        <td>
+          <input type="text" id="city" size="30" placeholder="City Name"
+              formControlName="city">
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label for="city">Units: </label>
+        </td>
+        <td>
+          <code>Standard</code>
+          <input type="radio" value="standard" formControlName="units">
+          <code>Metric</code>
+          <input type="radio" value="metric" formControlName="units">
+          <code>Imperial</code>
+          <input type="radio" value="imperial" formControlName="units">
+        </td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>
+          <button type="submit" [disabled]="form.invalid">
+            Get Weather
+          </button>
+        </td>
+      </tr>
+    </table>
+  </div>
+</form>

@@ -1,0 +1,23 @@
+
+<h1>{{ city | titlecase }}</h1>
+
+<div *ngIf="weather$ | async as list" style="font-size: 1.5em;">
+  <table>
+    <tr *ngFor="let w of list">
+      <td>
+        <img src="https://openweathermap.org/img/wn/{{ w.icon }}@2x.png" alt="">
+      </td>
+      <td>
+        <code>
+          {{ w.main }} {{ w.description }}
+        </code>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <a [routerLink]="[ '/' ]">Back</a>
+      </td>
+    </tr>
+  </table>
+</div>
